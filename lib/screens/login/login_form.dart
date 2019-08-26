@@ -28,16 +28,6 @@ class _LoginFormState extends State<LoginForm> {
   @override
   Widget build(BuildContext context) {
     return Observer(builder: (BuildContext context) {
-      if (_loginStore.values["status"] == LoadingStatus.failed) {
-        WidgetsBinding.instance.addPostFrameCallback((_) {
-          String error = _loginStore.values["message"];
-          _loginStore.stopLoading();
-//          Scaffold.of(context).showSnackBar(SnackBar(
-//            content: Text(error),
-//            backgroundColor: Colors.redAccent,
-//          ));
-        });
-      }
       if ((_loginStore.values["status"] == LoadingStatus.complete)) {
         WidgetsBinding.instance.addPostFrameCallback((_) {
           Navigator.of(context)
