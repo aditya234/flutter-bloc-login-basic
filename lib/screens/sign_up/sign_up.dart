@@ -14,8 +14,8 @@ class SignUpState extends State<SignUp> {
   bool _autoValidate = false;
   String _email;
   String _password;
-  String _firstname;
-  String _lastname;
+  String _firstName;
+  String _lastName;
   Validations validations = Validations();
 
   @override
@@ -48,7 +48,7 @@ class SignUpState extends State<SignUp> {
                     hintText: 'Should have atleast 6 characters.',
                     validator: validations.validateName,
                     onSubmit: (value) {
-                      _firstname = value;
+                      _firstName = value;
                     }),
                 SizedBox(height: 25.0),
                 createTextField(
@@ -57,7 +57,7 @@ class SignUpState extends State<SignUp> {
                     hintText: 'Should have atleast 6 characters.',
                     validator: validations.validateName,
                     onSubmit: (value) {
-                      _lastname = value;
+                      _lastName = value;
                     }),
                 SizedBox(height: 25.0),
                 createTextField(
@@ -185,8 +185,8 @@ class SignUpState extends State<SignUp> {
     } else {
       form.save();
       dymmyUserDb.add({
-        "firstname": _firstname,
-        "lastname": _lastname,
+        "firstname": _firstName,
+        "lastname": _lastName,
         "email": _email,
         "password": _password
       });
